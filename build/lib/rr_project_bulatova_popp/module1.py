@@ -6,9 +6,27 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from joypy import joyplot
 from scipy.stats import norm
-from typing import Callable
+from typing import Callable, Optional
+from abc import ABC, abstractmethod
 
-class PairedTtest:
+class StatisticalTest(ABC):
+    def __init__(self, alpha: float = 0.05) -> None:
+       self.alpha=alpha 
+    @abstractmethod
+    def descriptive_stats(self) -> pd.DataFrame:
+        pass
+    @abstractmethod
+    def check_normality(self) -> bool:
+        pass
+    @abstractmethod
+    def normality_visualization(self, vis_func) -> None:
+        pass
+    @abstractmethod
+    def run_test(self) -> dict[str, float]|None:
+        pass
+        
+
+class PairedTtest(StatisticalTest):
     """
     A class for conducting paired t-tests and non-parametric Wilcoxon tests on two related samples.
 
@@ -286,7 +304,7 @@ class PairedTtest:
 
 
 
-class IndependentTtest:
+class IndependentTtest(StatisticalTest):
     """
     A class to perform an independent t-test or Mann-Whitney U test on two samples 
     and provide related descriptive statistics, normality checks, and visualizations.
@@ -549,7 +567,7 @@ class IndependentTtest:
             return {'pvalue': mannwhitneyu.pvalue, 'statistic': mannwhitneyu.statistic}
 
 
-class MultiGroupTest:
+class MultiGroupTest(StatisticalTest):
     """
     A class for performing multi-group statistical tests and visualizations on datasets.
 

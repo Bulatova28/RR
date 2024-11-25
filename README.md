@@ -40,4 +40,48 @@ Main features:
 
 ## Installation
 
-To install this package, use pip
+To install this package, use `pip install rr_project_bulatova_popp` 
+
+##  Examples 
+
+### Example 1
+
+```python
+from rr_project_bulatova_popp import PairedTtest
+
+df = pd.read_csv('..\\Datasets\\dataset_1.csv') 
+
+paired_test = PairedTtest(df, ['col1', 'col2'])
+
+paired_test.normality_visualization()
+```
+__Result:__
+
+![Example 1](images/ex1.jpg)
+
+### Example 2
+
+```python
+from rr_project_bulatova_popp import PairedTtest
+
+df = pd.read_csv('..\\Datasets\\dataset_1.csv') 
+
+multi_group1 = MultiGroupTest(df, ['sem2_alc3', 'sem2_alc2', 'sem2_alc5'])
+
+multi_group1.run_test()
+```
+__Result:__
+```
+---The Shapiro-Wilk normality test has been performed---
+
+          sem2_alc3 sem2_alc2 sem2_alc5
+stat       0.958085  0.954866  0.940237
+p_value     0.31377  0.261891  0.112078
+is_normal      True      True      True
+All THE SAMPLES ARE NORMALLY DISTRIBUTED
+
+---The one-way ANOVA test has been performed---
+
+H0: Two or more groups have the same population mean
+```
+![Example 1](images/ex2.jpg)

@@ -7,7 +7,7 @@ setup(
     long_description=open('README.md').read(),  
     long_description_content_type='text/markdown', 
     author='Bulatova Viktoriia, Popp Sofia',  
-    url='https://github.com/yourusername/RR_PROJECT_EXAMPLE_VAR1',  
+    url='https://github.com/Bulatova28/RR_project_Bulatova_Popp',  
     packages=find_packages(), 
     install_requires=[  
         'numpy',  
