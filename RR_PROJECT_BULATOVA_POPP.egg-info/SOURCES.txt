@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+RR_PROJECT_BULATOVA_POPP.egg-info/PKG-INFO
+RR_PROJECT_BULATOVA_POPP.egg-info/SOURCES.txt
+RR_PROJECT_BULATOVA_POPP.egg-info/dependency_links.txt
+RR_PROJECT_BULATOVA_POPP.egg-info/requires.txt
+RR_PROJECT_BULATOVA_POPP.egg-info/top_level.txt
+rr_project_bulatova_popp/__init__.py
+rr_project_bulatova_popp/module1.py
